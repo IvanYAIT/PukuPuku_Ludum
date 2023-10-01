@@ -23,7 +23,7 @@ namespace Player
         {
             if (isItemPicked && !onCooldown && Input.GetKeyDown(KeyCode.E))
             {
-                _currentObject.gameObject.transform.parent = transform.parent.parent.parent;
+                _currentObject.gameObject.transform.parent = transform.parent.parent;
                 _joint.connectedBody = null;
                 _currentObject = null;
                 onCooldown = true;
