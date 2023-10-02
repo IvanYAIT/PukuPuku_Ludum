@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b896f452cdae340b90b26b4550d5b5, type: 3}
   m_Name: "\u0421laustrophobiaSettings"
   m_EditorClassIdentifier: 
-  maxValue: 15
-  valuePerItem: 5
+  maxValue: 12
+  valuePerItem: 3
