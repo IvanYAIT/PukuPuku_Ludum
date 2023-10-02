@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 namespace Player
 {
@@ -12,6 +13,13 @@ namespace Player
         private bool onCooldown;
         private const float COOLDOWN = 0.5f;
         private FixedJoint _joint;
+        private CharacterAnimationController _animationController;
+
+        [Inject]
+        public void Construct(CharacterAnimationController animationController)
+        {
+            _animationController = animationController;
+        }
 
         void Start()
         {
@@ -23,11 +31,12 @@ namespace Player
         {
             if (isItemPicked && !onCooldown && Input.GetKeyDown(KeyCode.E))
             {
-                _currentObject.gameObject.transform.parent = transform.parent.parent;
+                _currentObject.gameObject.transform.parent = transform.parent.parent.parent;
                 _joint.connectedBody = null;
                 _currentObject = null;
                 onCooldown = true;
                 isItemPicked = false;
+                _animationController.ItemPickedUp(isItemPicked);
                 Invoke(nameof(ResetCoolDown), COOLDOWN);
             }
         }
@@ -44,6 +53,7 @@ namespace Player
                     isItemPicked = true;
                     _currentObject = other.gameObject;
                     onCooldown = true;
+                    _animationController.ItemPickedUp(isItemPicked);
                     Invoke(nameof(ResetCoolDown), COOLDOWN);
                 }
 

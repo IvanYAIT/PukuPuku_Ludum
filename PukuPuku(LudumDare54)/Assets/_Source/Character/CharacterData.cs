@@ -16,6 +16,7 @@ namespace Player
         [SerializeField] private Transform playerBodyTransfrom;
         [SerializeField] private Transform cameraTransfrom;
         [SerializeField] private LayerMask groundMask;
+        [SerializeField] private bool fixRotation;
 
         public float Speed => speed;
         public float RotationSpeed => rotationSpeed;
@@ -29,5 +30,6 @@ namespace Player
         public Transform PlayerBodyTransfrom => playerBodyTransfrom;
         public Transform CameraTransfrom => cameraTransfrom;
         public LayerMask GroundMask => groundMask;
+        public bool FixRotation => fixRotation;
     }
 }
