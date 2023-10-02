@@ -15,7 +15,6 @@ namespace House
 
         private int _itemLayer;
         private int _playerLayer;
-        private int _itemCount;
         private float _valuePerItem;
 
         [Inject]
@@ -34,7 +33,6 @@ namespace House
         {
             if(other.gameObject.layer == _itemLayer)
             {
-                _itemCount++;
                 OnRoomChange?.Invoke(-_valuePerItem);
             }
             if (other.gameObject.layer == _playerLayer)
@@ -45,7 +43,6 @@ namespace House
         {
             if (other.gameObject.layer == _itemLayer)
             {
-                _itemCount--;
                 OnRoomChange?.Invoke(_valuePerItem);
             }
             if (other.gameObject.layer == _playerLayer)
